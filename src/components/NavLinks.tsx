@@ -8,7 +8,7 @@ import {
   HiOutlineHome,
   HiOutlineWrenchScrewdriver
 } from 'react-icons/hi2';
-import { IconTree, IconType } from 'react-icons';
+import { IconType } from 'react-icons';
 
 const links = [
   { icon: HiOutlineHome, text: 'Ritmo', href: '/' },
