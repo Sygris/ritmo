@@ -13,12 +13,20 @@ export default function NavLinks() {
       <NavLink href='/dashboard/habits' icon={IoLeafSharp} flip={true} text='My Habits' />
       <NavLink href='/dashboard/stats' icon={IoAnalyticsSharp} text='Statistics' />
       <NavLink href='/dashboard/settings' icon={IoSettingsSharp} text='Settings' />
-      <NavLink href="/" icon={IoLogOutSharp} text='Logout' />
+      <NavLink href="/" icon={IoLogOutSharp} text='Logout' size={24} />
     </>
   );
 }
 
-function NavLink({ href, icon, text, flip }: { href: string, icon: IconType, text: string, flip?: boolean }) {
+type NavLinkProps = {
+  href: string,
+  icon: IconType,
+  text: string,
+  flip?: boolean
+  size?: number
+}
+
+function NavLink({ href, icon, text, flip, size }: NavLinkProps) {
   const pathName = usePathname();
   const isActive = pathName == href;
   const isLogout = text === 'Logout';
@@ -38,7 +46,7 @@ function NavLink({ href, icon, text, flip }: { href: string, icon: IconType, tex
         }
       )}
     >
-      <Icon icon={icon} flip={flip} className='text-primary-background'/>
+      <Icon icon={icon} size={size} flip={flip} className='text-primary-background'/>
       <p className='hidden md:block'>{text}</p>
 
       {isActive && (
