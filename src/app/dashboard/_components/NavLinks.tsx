@@ -2,14 +2,15 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import clsx from 'clsx';
-import { IconType } from 'react-icons';
+import Icon from './Icon';
 import { IoAnalyticsSharp, IoGridSharp, IoLeafSharp, IoLogOutSharp, IoSettingsSharp } from 'react-icons/io5';
+import { IconType } from 'react-icons';
 
 export default function NavLinks() {
   return (
     <>
       <NavLink href='/dashboard' icon={IoGridSharp} text='Dashboard' />
-      <NavLink href='/dashboard/habits' icon={IoLeafSharp} text='My Habits' />
+      <NavLink href='/dashboard/habits' icon={IoLeafSharp} flip={true} text='My Habits' />
       <NavLink href='/dashboard/stats' icon={IoAnalyticsSharp} text='Statistics' />
       <NavLink href='/dashboard/settings' icon={IoSettingsSharp} text='Settings' />
       <NavLink href="/" icon={IoLogOutSharp} text='Logout' />
@@ -17,7 +18,7 @@ export default function NavLinks() {
   );
 }
 
-function NavLink({ href, icon: Icon, text }: { href: string, icon: IconType, text: string }) {
+function NavLink({ href, icon, text, flip }: { href: string, icon: IconType, text: string, flip?: boolean }) {
   const pathName = usePathname();
   const isActive = pathName == href;
   const isLogout = text === 'Logout';
@@ -37,7 +38,7 @@ function NavLink({ href, icon: Icon, text }: { href: string, icon: IconType, tex
         }
       )}
     >
-      <Icon size={24} className='text-primary-background'/>
+      <Icon icon={icon} flip={flip} className='text-primary-background'/>
       <p className='hidden md:block'>{text}</p>
 
       {isActive && (

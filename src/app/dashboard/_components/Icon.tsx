@@ -1,7 +1,7 @@
 import React from "react";
 import { IconType } from "react-icons";
 
-type IconProps = {
+export type IconProps = {
   icon: IconType,
   size?: number,
   flip?: boolean,
