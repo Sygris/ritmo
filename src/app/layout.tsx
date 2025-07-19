@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import SideNav from "@/components/SideNav";
+import "@/app/globals.css"
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,10 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="flex h-screen md:flex-row md:overflow-hidden">
-          <SideNav />
-          <main className="flex-grow p-6 md:overflow-y-auto md:p-12">{children}</main>
-        </div>
+        {children}
       </body>
     </html>
   );
