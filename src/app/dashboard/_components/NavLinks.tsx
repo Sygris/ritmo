@@ -12,17 +12,12 @@ export default function NavLinks() {
       <NavLink href='/dashboard/habits' icon={IoLeafSharp} text='My Habits' />
       <NavLink href='/dashboard/stats' icon={IoAnalyticsSharp} text='Statistics' />
       <NavLink href='/dashboard/settings' icon={IoSettingsSharp} text='Settings' />
-      <NavLink href="/" icon={IoLogOutSharp, true} text='Logout' />
+      <NavLink href="/" icon={IoLogOutSharp} text='Logout' />
     </>
   );
 }
 
-type IconProps = {
-  icon: IconType;
-  flip: boolean;
-}
-
-function NavLink({ href, icon: Icon, text }: { href: string, icon: IconProps, text: string }) {
+function NavLink({ href, icon: Icon, text }: { href: string, icon: IconType, text: string }) {
   const pathName = usePathname();
   const isActive = pathName == href;
   const isLogout = text === 'Logout';
