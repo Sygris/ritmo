@@ -9,11 +9,11 @@ type CardProps = {
 export function Card({ children, className, ...props }: CardProps) {
 
   // Added this line because when passing a bg color it wouldn´t change
-  const backgroundColor = className?.includes('bg-') ? '' : 'bg-secondary-background/5';
+  const backgroundColor = className?.includes('bg-') ? '' : 'bg-primary-background/5';
   const combinedClass = clsx(
     backgroundColor,
     className,
-    'p-2 rounded-xl shadow-sm'
+    'p-2 rounded-xl shadow-md shadow-foreground/20 h-fit'
   );
 
   return (

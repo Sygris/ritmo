@@ -27,12 +27,19 @@
   --font-mono: var(--font-geist-mono);
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #101113;
+    --foreground: #F5F5F5;
+    --primary-background: #7DD3FC;
+    --primary-foreground: #0C0C0C;
+    --secondary-background: #27282B;
+    --secondary-foreground: #F5F5F5;
+    --accent: #22C55E;
+    --muted: #A0A0A0;
+    --error: #EF4444;
   }
-} */
+}
 
 body {
   background: var(--background);
