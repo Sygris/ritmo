@@ -14,7 +14,7 @@ export default function SideNav() {
             className="rounded-full w-8 md:w-16"
           />
         </div>
-        <h3 className="hidden md:block">John Doe</h3>
+        <h3 className="hidden md:block">Alfredo Silva</h3>
       </div>
       <NavLinks />
     </aside>
