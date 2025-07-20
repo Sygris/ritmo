@@ -7,13 +7,15 @@ type CardProps = {
 }
 
 export function Card({ children, className, ...props }: CardProps) {
+
+  // Added this line because when passing a bg color it wouldn´t change
   const backgroundColor = className?.includes('bg-') ? '' : 'bg-secondary-background/5';
   const combinedClass = clsx(
     backgroundColor,
     className,
-    'p-2 roundend-xl shadow-md'
+    'p-2 rounded-xl shadow-sm'
   );
-  
+
   return (
     <div className={combinedClass} {...props}>
       {children}
@@ -25,14 +27,14 @@ export function CardHeader({ children, className, ...props }: CardProps) {
   return (
     <div className={`${className} flex flex-col gap-2 p-4`} {...props}>
       {children}
-      <span className="w-full bg-gray-500/10 h-0.5" />
+      <div className="w-full bg-muted h-0.5" />
     </div>
   );
 };
 
 export function CardTitle({ children, className, ...props }: CardProps) {
   return (
-    <h3 className={`${className} text-2xl font-medium`} {...props}>
+    <h3 className={`${className} text-xl md:text-2xl font-medium`} {...props}>
       {children}
     </h3>
   );
@@ -40,7 +42,7 @@ export function CardTitle({ children, className, ...props }: CardProps) {
 
 export function CardDescription({ children, className, ...props }: CardProps) {
   return (
-    <p className={`${className} text-gray-500 text-sm font-light`} {...props}>
+    <p className={`${className} text-secondary-foreground/50 text-xs md:text-sm font-light`} {...props}>
       {children}
     </p>
   );
