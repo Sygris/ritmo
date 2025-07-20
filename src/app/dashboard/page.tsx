@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
+import { Card } from "../ui/Card";
 
 export default async function Home() {
 
@@ -11,6 +12,10 @@ export default async function Home() {
       {users.map((user) =>
         <Link href={"./page.tsx"} key={user.id}>{user.username}</Link>
       )}
+
+      <Card className="w-3/6">
+        <h1>TEST CARD</h1>
+      </Card>
     </>
   );
 }

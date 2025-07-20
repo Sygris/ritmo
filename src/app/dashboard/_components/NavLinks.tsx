@@ -36,10 +36,10 @@ function NavLink({ href, icon, text, flip, size }: NavLinkProps) {
       href={href}
       className={clsx(
         `flex h-[48px] items-center justify-center gap-2
-        p-3 font-medium hover:bg-primary-background/50 hover:text-black 
+        p-3 font-medium hover:bg-primary-background/20 hover:text-black 
         md:flex-none md:justify-start md:p-2 md:px-6`,
         {
-          'bg-primary-background/50': isActive,
+          'bg-primary-background/20': isActive,
         },
         {
           'absolute bottom-2 w-full': isLogout,
@@ -50,7 +50,7 @@ function NavLink({ href, icon, text, flip, size }: NavLinkProps) {
       <p className='hidden md:block'>{text}</p>
 
       {isActive && (
-        <span className='absolute right-0 w-1.5 h-8 bg-accent rounded-l-lg' />
+        <span className='absolute right-0 w-1.5 h-8 bg-primary-background rounded-l-lg' />
       )}
     </Link>
   );
