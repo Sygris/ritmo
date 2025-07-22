@@ -3,20 +3,17 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import clsx from 'clsx';
 import Icon from './Icon';
-import { IoAnalyticsSharp, IoGridSharp, IoLeafSharp, IoLogOutSharp, IoSettingsSharp } from 'react-icons/io5';
 import { IconType } from 'react-icons';
+import { LuChartNoAxesColumnIncreasing, LuHouse, LuListChecks, LuSettings } from 'react-icons/lu';
 
 export default function NavLinks() {
   return (
-    <>
-      <NavLink href='/dashboard' icon={IoGridSharp} text='Dashboard' />
-      <NavLink href='/dashboard/habits' icon={IoLeafSharp} flip={true} text='My Habits' />
-      <NavLink href='/dashboard/stats' icon={IoAnalyticsSharp} text='Statistics' />
-      <NavLink href='/dashboard/settings' icon={IoSettingsSharp} text='Settings' />
-      <div className='w-full absolute bottom-4'>
-        <NavLink href="/" icon={IoLogOutSharp} text='Logout' size={24} />
-      </div>
-    </>
+    <nav className='flex-1 px-2 py-4 space-y-1 overflow-y-auto'>
+      <NavLink href='/dashboard' icon={LuHouse} text='Dashboard' />
+      <NavLink href='/dashboard/habits' icon={LuListChecks} text='My Habits' />
+      <NavLink href='/dashboard/stats' icon={LuChartNoAxesColumnIncreasing} text='Statistics' />
+      <NavLink href='/dashboard/settings' icon={LuSettings} text='Settings' />
+    </nav>
   );
 }
 
@@ -36,21 +33,17 @@ function NavLink({ href, icon, text, flip, size }: NavLinkProps) {
     <Link
       href={href}
       className={clsx(
-        `flex h-[48px] items-center justify-center gap-2
-        p-3 font-medium hover:bg-primary-background/20
-        md:flex-none md:justify-start md:p-2 md:px-6`,
+        'flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors',
         {
-          'bg-primary-background/20': isActive,
+          'bg-emerald-50 text-emerald-600': isActive
         },
-
+        {
+          ' text-gray-600 hover:bg-gray-100': !isActive
+        }
       )}
     >
-      <Icon icon={icon} size={size} flip={flip} className='text-primary-background'/>
-      <p className='hidden md:block'>{text}</p>
-
-      {isActive && (
-        <span className='absolute right-0 w-1.5 h-8 bg-primary-background rounded-l-lg' />
-      )}
+      <Icon icon={icon} size={size} flip={flip} />
+      <p className='font-medium'>{text}</p>
     </Link>
   );
 }

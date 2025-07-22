@@ -34,7 +34,7 @@ export function CardHeader({ children, className, ...props }: CardProps) {
 
 export function CardTitle({ children, className, ...props }: CardProps) {
   return (
-    <h3 className={`${className} text-xl md:text-2xl font-medium`} {...props}>
+    <h3 className={`${className} text-xl md:text-xl font-medium`} {...props}>
       {children}
     </h3>
   );

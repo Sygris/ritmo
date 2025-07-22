@@ -7,9 +7,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div>
       <Header onAddHabit={() => {}}/>
-      <div className="flex font-mono h-screen md:flex-row md:overflow-hidden">
+      <div className="flex h-[calc(100vh-72px)] overflow-auto md:flex-row md:overflow-hidden">
         <SideNav />
-        <main className="flex-grow p-6 md:overflow-y-auto md:p-12">{children}</main>
+        <main className="flex-grow bg-stone-50 -z-1 md:overflow-y-auto px-4 py-8">
+          {children}
+        </main>
       </div>
     </div>
   )
