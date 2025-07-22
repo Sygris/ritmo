@@ -42,7 +42,8 @@ function NavLink({ href, icon, text, flip, size }: NavLinkProps) {
         }
       )}
     >
-      <Icon icon={icon} size={size} flip={flip} />
+      {/* If size is not specify keep nav links at 20px instead of default (24px) */}
+      <Icon icon={icon} size={size ? size : 20} flip={flip} />
       <p className='font-medium'>{text}</p>
     </Link>
   );

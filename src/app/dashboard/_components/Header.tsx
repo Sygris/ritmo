@@ -12,7 +12,7 @@ export default function Header({ onAddHabit }: HeaderProps) {
   }
 
   return (
-    <div className="bg-white shadow-sm">
+    <div className="bg-white shadow-sm sticky">
       <div className="container mx-auto p-4 flex items-center justify-between">
         <div className="flex items-center">
           <Icon icon={IoLeafSharp} flip={true} className="text-emerald-600 mr-2" />
