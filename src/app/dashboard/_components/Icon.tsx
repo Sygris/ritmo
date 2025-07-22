@@ -12,7 +12,7 @@ export default function Icon({icon: Icon, size = 24, flip = false, className=''}
   return (
     <Icon
       size={size} 
-      className={`transform ${flip ? 'scale-x-[-1]' : ''} ${className}`}
+      className={`transform ${flip ? 'rotate-90' : ''} ${className}`}
     />
   );
 }

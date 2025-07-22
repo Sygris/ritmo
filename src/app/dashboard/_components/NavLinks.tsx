@@ -5,7 +5,6 @@ import clsx from 'clsx';
 import Icon from './Icon';
 import { IoAnalyticsSharp, IoGridSharp, IoLeafSharp, IoLogOutSharp, IoSettingsSharp } from 'react-icons/io5';
 import { IconType } from 'react-icons';
-import { FaMoon } from 'react-icons/fa';
 
 export default function NavLinks() {
   return (
