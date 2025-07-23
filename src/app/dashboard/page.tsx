@@ -2,7 +2,15 @@ import { LuActivity, LuCircle, LuCircleCheck } from "react-icons/lu";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/Card";
 import Icon from "./_components/Icon";
 
-const habitsList = [
+type HabitCardProps = {
+  name: string,
+  description: string,
+  frequency: string,
+  consistency: string,
+  color: string
+}
+
+const habitsList: HabitCardProps[] = [
   {
     name: "Meditation",
     description: "10 minutes of mindfulness",
@@ -36,7 +44,7 @@ export default function Home() {
             Today&apos;s Progress
           </CardTitle>
         </CardHeader>
-        <CardContent className="flex flex-col items-start justify-center">
+        <CardContent className="flex flex-col items-center justify-center">
           <p>1 of 3 habits completed</p>
         </CardContent>
       </Card>
