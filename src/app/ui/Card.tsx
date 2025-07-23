@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils/cn";
-import clsx from "clsx";
 import React from "react";
 
 type CardProps = {
@@ -9,8 +8,6 @@ type CardProps = {
 
 export function Card({ children, className, ...props }: CardProps) {
 
-  // Added this line because when passing a bg color it wouldn´t change
-  // const backgroundColor = className?.includes('bg-') ? '' : 'bg-white';
   const combinedClass = cn(
     'bg-white p-2 rounded-xl shadow-xs',
     className
