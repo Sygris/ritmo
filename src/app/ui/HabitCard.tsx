@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Card,
   CardContent,
@@ -6,8 +8,9 @@ import {
   CardTitle
 } from "./Card";
 import { cn } from "@/lib/utils/cn";
+import { useState } from "react";
+import { FiCheckCircle, FiCircle, FiActivity } from "react-icons/fi";
 import Icon from "../dashboard/_components/Icon";
-import { LuActivity, LuCircle } from "react-icons/lu";
 
 type HabitCardProps = {
   name: string,
@@ -18,6 +21,9 @@ type HabitCardProps = {
 }
 
 export default function HabitCard(props: HabitCardProps) {
+
+  const [isHabitComplete, setIsHabitComplete] = useState(false);
+
   return (
     <Card className={cn(
       props.color,
@@ -30,7 +36,12 @@ export default function HabitCard(props: HabitCardProps) {
           </CardTitle>
           <button
             className="hover:text-emerald-600 cursor-pointer">
-            <Icon icon={LuCircle} />
+            <Icon
+              onClick={() => {
+                setIsHabitComplete(!isHabitComplete);
+              }}
+              icon={isHabitComplete ? FiCheckCircle : FiCircle}
+            />
           </button>
         </div>
         <CardDescription className="mt-1 space-y-4">
@@ -40,7 +51,11 @@ export default function HabitCard(props: HabitCardProps) {
       </CardHeader>
       <CardContent className="flex items-start mt-8">
         <div className="px-1 py-0.5">
-          <Icon icon={LuActivity} size={16} className="text-emerald-600" />
+          <Icon
+            icon={FiActivity}
+            size={16}
+            className="text-emerald-600"
+          />
         </div>
         <p className="text-gray-600 text-xs">{props.consistency}</p>
       </CardContent>
