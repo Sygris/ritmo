@@ -10,7 +10,7 @@ import {
 import { cn } from "@/lib/utils/cn";
 import { useState } from "react";
 import { FiCheckCircle, FiCircle, FiActivity } from "react-icons/fi";
-import Icon from "../dashboard/_components/Icon";
+import Icon from "./Icon";
 
 type HabitCardProps = {
   name: string,
@@ -44,12 +44,13 @@ export default function HabitCard(props: HabitCardProps) {
             />
           </button>
         </div>
-        <CardDescription className="mt-1 space-y-4">
+        <CardDescription className="mt-1 space-y-2">
           <p>{props.description}</p>
-          <p>{props.frequency}</p>
+          <p className="text-[12px] text-gray-400
+          ">{props.frequency}</p>
         </CardDescription>
       </CardHeader>
-      <CardContent className="flex items-start mt-8">
+      <CardContent className="flex items-start mt-4">
         <div className="px-1 py-0.5">
           <Icon
             icon={FiActivity}
