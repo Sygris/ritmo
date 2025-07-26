@@ -36,10 +36,7 @@ export default function Home() {
           </CardTitle>
         </CardHeader>
         <CardContent className="flex flex-col gap-4 items-center justify-center">
-          <div className="w-30 h-30 flex items-center justify-center border-10 border-gray-200 rounded-full">
-            <span className="text-2xl">33%</span>
-          </div>
-          <ProgressBar />
+          <ProgressBar radius={60} stroke={10} percentage={66} />
           <p>1 of 3 habits completed</p>
         </CardContent>
       </Card>
