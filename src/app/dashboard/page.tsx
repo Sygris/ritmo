@@ -36,8 +36,8 @@ export default function Home() {
           </CardTitle>
         </CardHeader>
         <CardContent className="flex flex-col gap-4 items-center justify-center">
-          <ProgressBar radius={60} stroke={10} percentage={66} />
-          <p>1 of 3 habits completed</p>
+          <ProgressBar radius={60} stroke={10} percentage={67} />
+          <p>2 of 3 habits completed</p>
         </CardContent>
       </Card>
       <div className="mt-8">

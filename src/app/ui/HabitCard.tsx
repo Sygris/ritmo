@@ -41,13 +41,15 @@ export default function HabitCard(props: HabitCardProps) {
                 setIsHabitComplete(!isHabitComplete);
               }}
               icon={isHabitComplete ? FiCheckCircle : FiCircle}
+              className={isHabitComplete ? "text-emerald-600" : ""}
             />
           </button>
         </div>
         <CardDescription className="mt-1 space-y-2">
           <p>{props.description}</p>
-          <p className="text-[12px] text-gray-400
-          ">{props.frequency}</p>
+          <p className="text-[12px] text-gray-400">
+            {props.frequency}
+          </p>
         </CardDescription>
       </CardHeader>
       <CardContent className="flex items-start mt-4">
