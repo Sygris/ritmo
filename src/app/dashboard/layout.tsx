@@ -9,14 +9,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [isModelOpen, setIsModalOpen] = useState(false);
 
   const handleAddHabit = () => {
-    setIsModalOpen(true);
+    setIsModalOpen(!isModelOpen);
   }
 
   return (
     <div>
       <Header onAddHabit={handleAddHabit}/>
       {isModelOpen && (
-        <Modal>
+        <Modal onClick={handleAddHabit}>
+          <></>
         </Modal>
       )}
       <div className="flex h-[calc(100vh-72px)] overflow-auto md:flex-row md:overflow-hidden">

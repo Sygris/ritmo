@@ -1,10 +1,11 @@
 'use client'
 
+import React from "react"
+import Icon from "./Icon"
 import { IoClose } from "react-icons/io5"
 import { Card, CardContent, CardHeader, CardTitle } from "./Card"
-import Icon from "./Icon"
 
-export default function Modal() {
+export default function Modal({ children, onClick }: { children: React.ReactNode, onClick }) {
 
   return (
     <div className="bg-black/50 w-full h-full fixed top-0 left-0 z-50 flex items-center justify-center">
@@ -14,7 +15,7 @@ export default function Modal() {
             <CardTitle>
               Add Habit
             </CardTitle>
-            <button type="button">
+            <button onClick={onClick} type="button" className="cursor-pointer">
               <Icon icon={IoClose} />
             </button>
           </div>
@@ -30,6 +31,7 @@ export default function Modal() {
               <input type="text" name="habitDescription" id="habitDescription" placeholder="e.g., 10 minutes of mindfulness" />
             </div>
           </form>
+          {children}
         </CardContent>
       </Card>
     </div>
