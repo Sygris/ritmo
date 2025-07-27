@@ -17,7 +17,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Header onAddHabit={handleAddHabit}/>
       {isModelOpen && (
         <Modal>
-          <h3>pumbasss</h3>
         </Modal>
       )}
       <div className="flex h-[calc(100vh-72px)] overflow-auto md:flex-row md:overflow-hidden">

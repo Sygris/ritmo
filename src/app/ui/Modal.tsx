@@ -1,22 +1,37 @@
 'use client'
+
+import { IoClose } from "react-icons/io5"
+import { Card, CardContent, CardHeader, CardTitle } from "./Card"
+import Icon from "./Icon"
+
 export default function Modal() {
+
   return (
-    <div className="bg-black/50 fixed top-0 left-0 z-50 flex h-full w-full items-center justify-center">
-      <div className="w-full max-w-md rounded bg-white p-6 shadow-lg">
-        <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-lg font-semibold">Popup Title</h2>
-          <button className="text-gray-500 hover:text-gray-700">
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
+    <div className="bg-black/50 w-full h-full fixed top-0 left-0 z-50 flex items-center justify-center">
+      <Card className="w-full max-w-md p-4">
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <CardTitle>
+              Add Habit
+            </CardTitle>
+            <button type="button">
+              <Icon icon={IoClose} />
+            </button>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <form action="" method="post">
+            <div className="flex flex-col items-start justify-center">
+              <label htmlFor="habitName">Name</label>
+              <input type="text" name="habitName" id="habitName" placeholder="e.g., Morning Meditation" />
+            </div>
+            <div className="flex flex-col items-start justify-center">
+              <label htmlFor="habitDescription">Description</label>
+              <input type="text" name="habitDescription" id="habitDescription" placeholder="e.g., 10 minutes of mindfulness" />
+            </div>
+          </form>
+        </CardContent>
+      </Card>
     </div>
   )
 }
