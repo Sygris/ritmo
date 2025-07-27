@@ -1,4 +1,4 @@
-import { IoAddSharp, IoLeafSharp, IoLogOutSharp } from "react-icons/io5";
+import { IoAddSharp, IoLeafSharp } from "react-icons/io5";
 import Icon from "../../ui/Icon";
 import { MdLogout } from "react-icons/md";
 
