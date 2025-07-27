@@ -16,7 +16,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div>
       <Header onAddHabit={handleAddHabit}/>
       {isModelOpen && (
-        <Modal onClick={handleAddHabit}>
+        <Modal title="Add Habit" onClick={handleAddHabit}>
           <></>
         </Modal>
       )}
