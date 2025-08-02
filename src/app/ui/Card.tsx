@@ -23,8 +23,8 @@ export function Card({ children, className, ...props }: CardProps) {
 export function CardHeader({ children, className, ...props }: CardProps) {
   return (
     <div className={cn(
-      className,
-      'flex flex-col'
+      'flex flex-col',
+      className
     )}
       {...props}
     >
@@ -36,8 +36,8 @@ export function CardHeader({ children, className, ...props }: CardProps) {
 export function CardTitle({ children, className, ...props }: CardProps) {
   return (
     <h3 className={cn(
-      className,
-      'text-xl md:text-xl font-medium'
+      'text-xl md:text-xl font-medium',
+      className
     )}
       {...props}
     >
@@ -49,8 +49,8 @@ export function CardTitle({ children, className, ...props }: CardProps) {
 export function CardDescription({ children, className, ...props }: CardProps) {
   return (
     <div className={cn(
-      className,
       'text-xs md:text-sm font-light',
+      className
     )}
       {...props}
     >
@@ -62,8 +62,8 @@ export function CardDescription({ children, className, ...props }: CardProps) {
 export function CardContent({ children, className, ...props }: CardProps) {
   return (
     <div className={cn(
-      className,
-      'text-center text-md'
+      'text-center text-md',
+      className
     )}
       {...props}
     >

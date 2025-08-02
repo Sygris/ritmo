@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import SideNav from "./_components/SideNav";
 import Header from "./_components/Header";
-import Modal from "../ui/Modal";
+import AddNewHabitModal from "../ui/AddNewHabitModal";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
 
@@ -16,9 +16,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div>
       <Header onAddHabit={handleAddHabit}/>
       {isModelOpen && (
-        <Modal title="Add Habit" onClick={handleAddHabit}>
-          <></>
-        </Modal>
+        <AddNewHabitModal onClick={handleAddHabit} />
       )}
       <div className="flex h-[calc(100vh-72px)] overflow-auto md:flex-row md:overflow-hidden">
         <SideNav />
