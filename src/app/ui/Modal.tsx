@@ -1,5 +1,3 @@
-// 'use client'
-
 import React from "react"
 import Icon from "./Icon"
 import { IoClose } from "react-icons/io5"
@@ -13,7 +11,7 @@ export type ModalProps = {
 
 export default function Modal({ title, onClick, children }: ModalProps) {
   return (
-    <div className="bg-black/50 w-full h-full fixed top-0 left-0 z-50 flex items-center justify-center">
+    <dialog className="bg-black/50 w-full h-full fixed top-0 left-0 z-50 flex items-center justify-center">
       <Card className="w-full max-w-md p-4">
         <CardHeader>
           <div className="flex items-center justify-between">
@@ -29,6 +27,6 @@ export default function Modal({ title, onClick, children }: ModalProps) {
           {children}
         </CardContent>
       </Card>
-    </div>
+    </dialog>
   )
 }
