@@ -1,6 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/Card";
-import HabitCard from "../ui/HabitCard";
-import ProgressBar from "../ui/ProgressBar";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/Components/Card";
+import HabitCard from "../ui/Components/HabitCard";
+import ProgressBar from "../ui/Components/ProgressBar";
 
 const habitsList = [
   {

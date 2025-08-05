@@ -1,8 +1,8 @@
 import Modal from "./Modal";
 
-export default function AddNewHabitModal({onClick} : {onClick : () => void}) {
+export default function AddNewHabitModal() {
   return (
-    <Modal title="Add New Habit" onClick={onClick}>
+    <Modal title="Add New Habit">
       <form action="" method="post" className="space-y-4 mt-4 p-2">
         <div className="flex flex-col items-start justify-center gap-2">
           <label htmlFor="habitName">Habit name</label>

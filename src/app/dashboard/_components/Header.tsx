@@ -1,14 +1,19 @@
+import Icon from "../../ui/Components/Icon";
 import { IoAddSharp, IoLeafSharp } from "react-icons/io5";
-import Icon from "../../ui/Icon";
 import { MdLogout } from "react-icons/md";
+import { useContext } from "react";
+import { ModalContext } from "@/lib/Contexts/ModalContext";
+import AddNewHabitModal from "@/app/ui/Components/AddNewHabitModal";
 
-type HeaderProps = {
-  onAddHabit: () => void
-}
-
-export default function Header({ onAddHabit }: HeaderProps) {
+export default function Header() {
   const handleLogout = () => {
 
+  }
+
+  const modalState = useContext(ModalContext);
+
+  const openModal = () => {
+    modalState?.UpdateModalState(true)
   }
 
   return (
@@ -20,11 +25,12 @@ export default function Header({ onAddHabit }: HeaderProps) {
         </div>
         <div className="flex items-center space-x-4">
           <button
-            onClick={onAddHabit}
+            onClick={openModal}
             className="flex items-center px-4 py-2 rounded-md bg-emerald-600 hover:bg-emerald-700 transition-colors duration-200 text-white cursor-pointer">
             <Icon icon={IoAddSharp} size={16} className="mr-1" />
             New Habit
           </button>
+          <AddNewHabitModal />
           <button
             onClick={handleLogout}
             className="text-gray-600 hover:text-gray-800 cursor-pointer"

@@ -2,7 +2,7 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import clsx from 'clsx';
-import Icon from '../../ui/Icon';
+import Icon from '../../ui/Components/Icon';
 import { IconType } from 'react-icons';
 import { LuChartNoAxesColumnIncreasing, LuHouse, LuListChecks, LuSettings } from 'react-icons/lu';
 

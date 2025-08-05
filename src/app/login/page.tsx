@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardTitle } from "../ui/Card";
+import { Card, CardHeader, CardTitle } from "../ui/Components/Card";
 
 export default function LoginPage() {
   return (
