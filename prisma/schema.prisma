@@ -6,53 +6,10 @@
 
 generator client {
   provider = "prisma-client-js"
-  // output   = "../src/generated/prisma"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
-}
-
-enum Frequency {
-  Daily
-  Weekly
-  Monthly
-}
-
-model User {
-  id           String   @id @default(auto()) @map("_id") @db.ObjectId
-  username     String   @unique
-  email        String   @unique
-  passwordHash String
-  createdAt    DateTime @default(now())
-
-  // Relationships
-  profile Profile?
-  habits  Habit[]
-}
-
-model Profile {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  firstName String?
-  lastName  String?
-  avatarURL String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  // Relationships
-  userID String @unique @db.ObjectId
-  user   User   @relation(fields: [userID], references: [id])
-}
-
-model Habit {
-  id        String     @id @default(auto()) @map("_id") @db.ObjectId
-  title     String
-  frequency Frequency?
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
-
-  // Relationships
-  userID String @db.ObjectId
-  user   User   @relation(fields: [userID], references: [id], onDelete: Cascade)
 }
