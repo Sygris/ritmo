@@ -1,5 +1,3 @@
-import { LuLogOut } from "react-icons/lu";
-import Icon from "../../ui/Components/Icon";
 import NavLinks from "./NavLinks";
 
 export default function SideNav() {

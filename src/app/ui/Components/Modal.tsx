@@ -1,4 +1,6 @@
-import React, { useContext } from "react"
+'use client'
+import React, { useContext, useEffect, useState } from "react"
+import { createPortal } from "react-dom"
 import { ModalContext } from "@/lib/Contexts/ModalContext"
 import Icon from "./Icon"
 import { IoClose } from "react-icons/io5"
@@ -10,32 +12,43 @@ export type ModalProps = {
 }
 
 export default function Modal({ title, children }: ModalProps) {
-
   const modalState = useContext(ModalContext);
+  const [isMounted, setIsMounted] = useState(false);
 
-  // Handle modal close via button or context
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const handleClose = () => {
     if (modalState?.UpdateModalState) {
       modalState.UpdateModalState(false);
     }
   };
 
-  // Don't render Modal if isModalOpen is false
-  if (!modalState?.isModelOpen) return null;
+  if (!modalState?.isModelOpen || !isMounted) return null;
 
-  return (
-    <dialog className="bg-black/50 w-full h-full fixed top-0 left-0 z-[100] flex items-center justify-center">
+  const overlay = (
+    <div
+      className="fixed inset-0 z-[1000] bg-black/50 grid place-items-center"
+      role="dialog"
+      aria-modal="true"
+      onClick={handleClose}
+    >
       <Card className="w-full max-w-md p-4">
-        <CardHeader className="flex items-center justify-between">
-          <CardTitle>{title}</CardTitle>
-          <button onClick={handleClose} aria-label="Close modal">
-            <Icon icon={IoClose} size={20} />
-          </button>
-        </CardHeader>
-        <CardContent>
-          {children}
-        </CardContent>
+        <div onClick={(e) => e.stopPropagation()}>
+          <CardHeader className="flex items-center justify-between">
+            <CardTitle>{title}</CardTitle>
+            <button onClick={handleClose} aria-label="Close modal">
+              <Icon icon={IoClose} size={20} />
+            </button>
+          </CardHeader>
+          <CardContent>
+            {children}
+          </CardContent>
+        </div>
       </Card>
-    </dialog>
-  )
+    </div>
+  );
+
+  return createPortal(overlay, document.body);
 }
