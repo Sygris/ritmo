@@ -2,16 +2,19 @@
 import { prisma } from "./prisma";
 
 export async function createUser() {
-  const newUser = await prisma.user.create({
-    data: {
-      email: 'tiago.a.vista@gmail.com',
-      name: 'Tiago Vista'
-    },
+  const email = 'tiago.a.vista@gmail.com';
+  const name = 'Tiago Vista';
+
+  const user = await prisma.user.upsert({
+    where: { email },
+    update: {},
+    create: { email, name },
     select: {
       id: true,
-      email: true
-    }
+      email: true,
+    },
   });
 
-  console.log(newUser);
+  console.log(user);
+  return user;
 }
