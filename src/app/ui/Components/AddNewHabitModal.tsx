@@ -6,6 +6,7 @@ export default function AddNewHabitModal() {
 
   const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log("Submiting data...");
     createUser();
   }
 
